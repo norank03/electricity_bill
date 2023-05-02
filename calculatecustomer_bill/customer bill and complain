@@ -1,0 +1,58 @@
+package new_customer;
+
+
+
+public class OldCustomer extends oldinsert {
+    //private long meterCode;
+    private long monthlyReading;
+    private String complain;
+    private int paybill;
+
+    public int getPaybill() {
+        return paybill;
+    }
+
+    public void setPaybill(int paybill) {
+        this.paybill = paybill;
+    }
+
+    public OldCustomer(int paybill) {
+        this.paybill = paybill;
+    }
+
+    public long getMonthlyReading() {
+        return monthlyReading;
+    }
+
+    public void setMonthlyReading(long monthlyReading) {
+        this.monthlyReading = monthlyReading;
+    }
+
+    public String getComplain() {
+        return complain;
+    }
+
+    public void setComplain(String complain) {
+        this.complain = complain;
+    }
+
+    public OldCustomer() {
+    }
+
+    public OldCustomer( int monthlyReading, String complain,int paybill) {      
+        this.monthlyReading = monthlyReading;
+        this.complain = complain;
+        this.paybill = paybill;
+        
+        
+    }
+
+   public static void sendEmail(int month){
+       if(month >=3)
+           System.out.println("Dear customer : you didn't pay bill through " + month + " month so we will cut off the electricity if you didn't pay" ); 
+   
+   }
+    
+    
+    
+} 
