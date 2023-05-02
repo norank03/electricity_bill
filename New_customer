@@ -1,0 +1,40 @@
+package new_customer;
+
+
+import java.util.Date;
+
+
+public class New_customer extends insert{
+public  static int b;
+New_customer()
+  {
+      
+  }
+    
+ New_customer (int id ,String name,String password,String region,String address,String email,String contract )
+ {
+     
+    insert(id,name,password,region,address,email,contract);
+     
+     
+   
+ }
+ 
+    /**
+     *
+     * @param b
+     * @return
+     */
+    public String  toString (int b)
+    {
+        Date d=new Date();
+     String g= d.toString();
+     
+    
+
+       return  g+"  "+b ; 
+        
+    }
+    
+
+}
