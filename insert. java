@@ -1,0 +1,59 @@
+package new_customer;
+
+import static java.lang.Integer.parseInt;
+
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.*;
+
+public class insert extends connect   
+{
+static Statement ss;
+static String query;
+
+public  int insert(int id ,String name,String password,String region,String address,String email,String contract )
+{
+    
+try
+{
+    
+    
+Connection con =connect();
+    ss=con.createStatement();
+
+
+
+   ResultSet rs =ss.executeQuery("select Max(metercode) from customers");
+
+rs.next();
+
+//int n = rs.Int("Max(metercode)");
+int n=rs.getInt("Max(metercode)");
+
+if(rs.getString("Max(metercode)")==null)
+{
+   n=1;
+    
+}
+
+else
+{
+ n++;
+ 
+}
+    query="insert into customers values('"+id+"','"+name+"','"+password+"','"+region+"','"+address+"','"+email+"','"+n+"',+'"+contract+"')";
+    ss.execute(query);
+    System.out.println("done");
+    return n;
+    }
+    catch(SQLException ee )
+            {
+               System.out.println(ee.getMessage()+"kllkkk");
+               
+               return 0;
+            }
+
+
+}
+}
+
